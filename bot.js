@@ -10,7 +10,7 @@ const http2 = require('http2');
 
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 const prefix = '1';
-const discord_token = "NDM3OTUyNjA4MzIyMzIyNDMy.De803w.fROJDs9pHtJGRkE3Fg5TlGR0Yek";
+const discord_token = "NDM3OTUyNjA4MzIyMzIyNDMy.De84xw.dA0RXdM4WGvbDQxcB1gxHQHDZu0";
 client.login(discord_token);
 client.on('ready', function() {
  console.log(`Logged in as * [ " ${client.user.username} " ]`);
