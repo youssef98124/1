@@ -18,11 +18,10 @@ npm install simple-youtube-api
 npm install queue
 */
 
-client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
-    console.log(`in ${client.guilds.size} servers `)
-    console.log(`[Codes] ${client.users.size}`)
-    client.user.setStatus("idle")
+client.on('ready',  () => {
+
+client.user.setGame(`1play`,'https://www.twitch.tv/hix')
+client.user.setStatus("online");
 });
 
 const prefix = "1"
@@ -263,4 +262,4 @@ ${prefix}queue ⇏ لمعرفة قآئمة التشغيل
    }
    }); 
    
-	client.login("NDUxMzM0MTY5NzY3NzA2NjI2.DfS5pA.8C7Mvk0p0m3WlD-FaraMkU5_tlA");
+	client.login("NDUxMzM0MTY5NzY3NzA2NjI2.DfS6MA.8RUc3EV40AKe516TfDgrsfIW2M4");
