@@ -25,7 +25,7 @@ client.on('ready', () => {
     client.user.setStatus("idle")
 });
 
-const prefix = "$"
+const prefix = "1"
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
 
