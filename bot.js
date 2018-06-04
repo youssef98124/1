@@ -7,7 +7,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    var ownerid = '388463178377330688'
+    var ownerid = '426130019119529984'
     let args = message.content.split(' ').slice(1)
     if (message.author.id != ownerid) return;
     if (message.content.startsWith('set')) {
