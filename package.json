@@ -11,8 +11,10 @@
     "test": "node bot.js"
   },
   "dependencies": {
+    "canvas": "^1.6.10",
     "discord.js": "^11.3.2",
     "eris": "^0.8.5",
+    "jimp": "^0.2.28",
     "express": "^4.16.3",
     "ffmpeg": "0.0.4",
     "ffmpeg-binaries": "^3.2.2-3",
