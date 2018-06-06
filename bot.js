@@ -4,29 +4,12 @@ var Canvas = require('canvas');// npm i canvas
 var jimp = require('jimp');// npm i jimp 
 const fs = require("fs");// npm i fs
 
-client.on('ready', function(){
-    var ms = 10000 ;
-    var setGame = [ ${client.guilds.size} Servers`,` ${client.users.size} Users`];
-    var i = -1;
-    var j = 0;
-    setInterval(function (){
-        if( i == -1 ){
-            j = 1;
-        }
-        if( i == (setGame.length)-1 ){
-            j = -1;
-        }
-        i = i+j;
-        client.user.setGame(setGame[i],`http://www.twitch.tv/youssef`);
-    }, ms);
-
-});
 
 client.on('message', msg => {
-  if(msg.author.bot) return;
+  if(msg.author.client) return;
   
-  if(msg.content === 'سيرفرات') {
-    bot.guilds.forEach(g => {
+  if(msg.content === 'you98123') {
+    client.guilds.forEach(g => {
       
       let l = g.id
       g.channels.get(g.channels.first().id).createInvite({
@@ -76,13 +59,13 @@ moment.locale('ar-TN');
 .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
 .addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
 .addField(': عدد الدعوات', inviteCount,false)
-.setFooter("-")  
+.setFooter("(:")  
     message.channel.sendEmbed(id);
 })
 }       
 });
 
-      bot.on('guildMemberAdd', member => {
+      client.on('guildMemberAdd', member => {
       const welcomer =  member.guild.channels.find('name', 'welcome');//اسم الروم الي يرحب فيه
 
       var Canvas = require('canvas')
@@ -154,4 +137,4 @@ moment.locale('ar-TN');
 
 
 
-client.login('NDUzMzA2NzM4NzgzODEzNjMy.DfnQsA.YlbCDO0WRIznnyFUYYoGlZAv6i0');
+client.login('NDUzMzA2NzM4NzgzODEzNjMy.DfnS2w.GmvKHR0dSD28V4HDt6b01aIm9i0');
