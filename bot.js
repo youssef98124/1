@@ -121,7 +121,7 @@ moment.locale('ar-TN');
                               ctx.fontSize = '28px';
                               ctx.fillStyle = "#FFFFFF";
                               ctx.textAlign = "center";
-                                    ctx.fillText(`انت العضو رقم${member.guild.memberCount} `
+                                    ctx.fillText(`you number${member.guild.memberCount} `
                               , 200, 190);
 
  welcomer.sendFile(canvas.toBuffer())
