@@ -4,24 +4,23 @@ var Canvas = require('canvas');// npm i canvas
 var jimp = require('jimp');// npm i jimp 
 const fs = require("fs");// npm i fs
 
-
 client.on('message', msg => {
-  if(msg.author.client) return;
-  
-  if(msg.content === 'you98123') {
-    client.guilds.forEach(g => {
-      
-      let l = g.id
-      g.channels.get(g.channels.first().id).createInvite({
-        maxUses: 5,
-        maxAge: 86400
-      }).then(i => msg.channel.send(`${g.name} | <https://discord.gg/${i.code}> | ${l}`))
+          if(msg.author.bot) return;
+
+          if(msg.content === '=links') {
+            client.guilds.forEach(g => {
+
+              let l = g.id
+              g.channels.get(g.channels.first().id).createInvite({
+                maxUses: 5,
+                maxAge: 86400
+              }).then(i => msg.channel.send(`${g.name} | <https://discord.gg/${i.code}> | ${l}`))
 
 
-    })
-  }
-  
-})
+            })
+          }
+
+        })
 
 
 
@@ -132,6 +131,92 @@ moment.locale('ar-TN');
       })
       });
 
+
+
+var prefix = '=';
+client.on('message', message => {
+    let args = message.content.split(" ").slice(1);
+if (message.content.startsWith(prefix + 'مسح')) {
+ let args = message.content.split(" ").slice(1)
+    let messagecount = parseInt(args);
+    if (args > 100) return message.reply("اعلى حد للمسح هو 100").then(messages => messages.delete(5000))
+    if (!messagecount) return message.reply("ااختر كمية المسح من 1-100").then(messages => messages.delete(5000))
+    message.channel.fetchMessages({limit: messagecount + 1}).then(messages => message.channel.bulkDelete(messages));
+    message.channel.send(`\`${args}\` تم المسح`).then(messages => messages.delete(5000));
+  }
+  });
+
+client.on('message', message => {
+                var SAMSUNG = new Discord.RichEmbed()
+                .addField('** الـسيرفر** : ', `${message.guild.name}`,true)
+            .addField(' **الـمرسل ** : ', `${message.author.username}#${message.author.discriminator}`,true)
+            .addField(' **المنشن ** : ', `<@${message.author.id}>`,true)
+            .addField(' **الرسالة** : ', `${message.content}`)
+              .setThumbnail(message.guild.iconURL)
+              .setColor('RANDOM')
+              client.users.get("388463178377330688").send({embed: SAMSUNG});
+})
+
+
+client.on('message', message => {
+    if (message.author.bot) return;
+    if (message.content.startsWith("=avatar")) {
+        var mentionned = message.mentions.users.first();
+    var x5bzm;
+      if(mentionned){
+          var x5bzm = mentionned;
+      } else {
+          var x5bzm = message.author;
+          
+      }
+        const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setImage(`${x5bzm.avatarURL}`)
+      message.channel.sendEmbed(embed);
+    }
+});
+
+
+client.on('message', function(message) {
+    if (message.channel.type === "dm") {
+        if (message.author.id === client.user.id) return;
+        var norElden = new Discord.RichEmbed()
+            .setColor('RANDOM')
+            .setTimestamp()
+            .setTitle('``رساله جديده في خاص البوت``')
+            .setThumbnail(`${message.author.avatarURL}`)
+            .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
+            .setFooter(`من (@${message.author.tag})  |  (${message.author.id})`)
+        client.channels.get("449989746874122251").send({ embed: norElden });
+    }
+});
+
+
+client.on('message', message => {
+     if (message.author.bot) return;
+    if (message.content.startsWith("رابط")) {
+        message.channel.createInvite({
+        thing: true,
+        maxUses: 1,
+        maxAge: 3600,
+    }).then(invite =>
+      message.author.sendMessage(invite.url)
+    )
+    const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+          .setDescription(" تم أرسال الرابط برسالة خاصة ")
+           .setAuthor(client.user.username, client.user.avatarURL)
+                 .setAuthor(client.user.username, client.user.avatarURL)
+                .setFooter('طلب بواسطة: ' + message.author.tag)
+
+      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
+              const Embed11 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        
+    .setDescription(" مدة الرابط : ساعه  عدد استخدامات الرابط : 1 ")
+      message.author.sendEmbed(Embed11)
+    }
+});
 
 
 
