@@ -5,7 +5,9 @@ var jimp = require('jimp');
 const fs = require("fs");
 
 
-
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
 
 client.on('message', message => {
   var prefix = '=';
