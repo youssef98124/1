@@ -13,7 +13,7 @@ client.on('ready', () => {
 
     client.on('message', message => {
           if (message.content.startsWith("=id")) {
-            if(!message.channel.guild) return message.reply('هذا الامر للسيرفرات فقط')
+            if(!message.channel.guild) return message.reply('_هذا الامر للسيرفرات فقط')
     var args = message.content.split(" ").slice(1);
     let user = message.mentions.users.first();
     var men = message.mentions.users.first();
