@@ -4,7 +4,7 @@ const fs = require("fs");
 const moment = require('moment');
 
 client.on('ready', () => {
-     client.user.setActivity("RAMADAN",{type: 'WATCHING'});
+     client.user.setActivity("Y-Bot",{type: 'WATCHING'});
 
 });
 
