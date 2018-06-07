@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require("fs");
+const moment = require('moment');
 
 client.on('ready', () => {
      client.user.setActivity("RAMADAN",{type: 'WATCHING'});
@@ -9,104 +10,108 @@ client.on('ready', () => {
 
 
 
-client.on('message', message => {
-           if (message.content.startsWith("=id")) {
-     var args = message.content.split(" ").slice(1);
-     let user = message.mentions.users.first();
-     var men = message.mentions.users.first();
-        var heg;
-        if(men) {
-            heg = men
-        } else {
-            heg = message.author
-        }
-      var mentionned = message.mentions.members.first();
-         var h;
-        if(mentionned) {
-            h = mentionned
-        } else {
-            h = message.member
-        }
-               moment.locale('ar-TN');
-      var id = new  Discord.RichEmbed()
-    .setColor("RANDOM")
-    .addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
-    .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true)
+
+    client.on('message', message => {
+          if (message.content.startsWith("=id")) {
+            if(!message.channel.guild) return message.reply('هذا الامر للسيرفرات فقط')
+    var args = message.content.split(" ").slice(1);
+    let user = message.mentions.users.first();
+    var men = message.mentions.users.first();
+       var heg;
+       if(men) {
+           heg = men
+       } else {
+           heg = message.author
+       }
+     var mentionned = message.mentions.members.first();
+        var h;
+       if(mentionned) {
+           h = mentionned
+       } else {
+           h = message.member
+       }
+              moment.locale('ar-TN');
+     var id = new  Discord.RichEmbed()
+   .setColor("RANDOM")
    .setThumbnail(message.author.avatarURL)
-    message.channel.send(id)
-}      
-          });
+   .setAuthor(` ${message.author.username} `, message.author.avatarURL)
+   .addField(': تاريخ دخولك للديسكورد', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true)
+   .addField(': تاريخ دخولك لسيرفرنا', `${moment(h.joinedAt).format('YYYY/M/D HH:mm')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
+   .setFooter(`${message.author.username}`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')
+   message.channel.send(id)
+}       });
 
 
+client.on('guildMemberAdd', member => {
+
+const channel = member.guild.channels.find("name","welcome")
+if (member.user.bot) return;
+var Canvas = require('canvas')
+var jimp = require('jimp')
+const w = ['./blue.png','./gray.png'];
+        let Image = Canvas.Image,
+            canvas = new Canvas(749, 198),
+            ctx = canvas.getContext('2d');
+        ctx.patternQuality = 'bilinear';
+        ctx.filter = 'bilinear';
+        ctx.antialias = 'subpixel';
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+        ctx.shadowOffsetY = 2;
+        ctx.shadowBlur = 2;
+        ctx.stroke();
+        ctx.beginPath();
+
+        fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
+            if (err) return console.log(err);
+            let BG = Canvas.Image;
+            let ground = new Image;
+            ground.src = Background;
+            ctx.drawImage(ground, 0, 0, 749, 198);
+
+})
+
+                let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(5, -20) + ".png" : member.user.displayAvatarURL;
+                jimp.read(url, (err, ava) => {
+                    if (err) return console.log(err);
+                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+                        if (err) return console.log(err);
+ctx.font = '35px Aeland';
+                        ctx.fontSize = '40px';
+                        ctx.fillStyle = "#FFFFFF";
+                        ctx.textAlign = "center";
+                        ctx.fillText(" Welcome to " + member.guild.name , 440, 25);
+
+                        //ur name
+                        ctx.font = '40px Impact';
+                        ctx.fontSize = '48px';
+                        ctx.fillStyle = "#FFFFFF";
+                        ctx.textAlign = "center";
+                        ctx.fillText(member.user.username, 420, 100);
+                         ctx.font = '30px Impact';
+                        ctx.fontSize = '20px';
+                        ctx.fillStyle = "#FFFFFF";
+                        ctx.textAlign = "center";
+                        ctx.fillText("Member namber :" + member.guild.memberCount, 410, 170);
 
 
-      client.on('guildMemberAdd', member => {
-      const welcomer =  member.guild.channels.find('name', 'welcome');//اسم الروم الي يرحب فيه
-
-      var Canvas = require('canvas')
-      var jimp = require('jimp')
-
-      const w = ['./img/w1.png',
-      './img/w2.png',
-      './img/w3.png',
-      './img/w4.png',
-      './img/w5.png',
-      './img/w7.png',
-      './img/w8.png'];
-
-              let Image = Canvas.Image,
-                  canvas = new Canvas(401, 202),
-                  ctx = canvas.getContext('2d');
-              ctx.patternQuality = 'bilinear';
-              ctx.filter = 'bilinear';
-              ctx.antialias = 'subpixel';
-              ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
-              ctx.shadowOffsetY = 2;
-              ctx.shadowBlur = 2;
-              fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-                  if (err) return console.log(err)
-                  let BG = Canvas.Image;
-                  let ground = new Image;
-                  ground.src = Background;
-                  ctx.drawImage(ground, 0, 0, 401, 202);
-
-      })
-
-                      let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(5, -20) + ".gif" : member.user.displayAvatarURL;
-                      jimp.read(url, (err, ava) => {
-                          if (err) return console.log(err);
-                          ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                              if (err) return console.log(err);
-
-                              
-                              let Avatar = Canvas.Image;
+                        //Avatar
+                        let Avatar = Canvas.Image;
                               let ava = new Avatar;
                               ava.src = buf;
-                              ctx.drawImage(ava, 152, 27, 95, 95);
-
-                                                      //wl
-                              ctx.font = '20px Arial Bold';
-                              ctx.fontSize = '15px';
-                              ctx.fillStyle = "#FFFFFF";
-                              ctx.textAlign = "center";
-                                                         ctx.fillText(member.user.username, 200, 154);
-
-                              //NAME
-                              ctx.font = '20px Arial';
-                              ctx.fontSize = '28px';
-                              ctx.fillStyle = "#FFFFFF";
-                              ctx.textAlign = "center";
-                                    ctx.fillText(`you number${member.guild.memberCount} `
-                              , 200, 190);
-
- welcomer.sendFile(canvas.toBuffer())
+                              ctx.beginPath();
+                              ctx.arc(115, 100, 90, 0, Math.PI*2);
+                                 ctx.closePath();
+                                 ctx.clip();
+                                 ctx.drawImage(ava, 5, 5, 200, 200);
+        channel.sendFile(canvas.toBuffer())
 
 
 
-      })
-      })
-      });
+})
+})
 
+
+});
 
 
 
@@ -217,6 +222,31 @@ if (message.content.startsWith(prefix + "uptime")) {
 }
 });
 
+
+
+  client.on('message', msg => {
+    if(msg.author.bot) return;
+    
+    if(msg.content === '=serversinfo') {
+      client.guilds.forEach(g => {
+        
+        let l = g.id
+        g.channels.get(g.channels.first().id).createInvite({
+          maxUses: 5,
+          maxAge: 86400
+        }).then(i => msg.channel.send(`
+        **
+        Invite Link : <https://discord.gg/${i.code}>
+        Server : ${g.name} | Id : ${g.id} 
+        Owner ID : ${g.owner.id}
+        **
+        `))
+  
+  
+      })
+    }
+    
+  })
 
 
 
