@@ -253,4 +253,4 @@ if (message.content.startsWith(prefix + "uptime")) {
 
 
 
-client.login('NDU0MDc2NTQxMjc4ODc5NzQ4.DfoWVw.ADv6yqwEb1tZuqKkR5GKQauqueg');
+client.login('NDU0NDAzMDkxMjc0NjYxOTEx.Dfs7Xg.MMNpCRzYqJSid02r0pEnWAeR_v0');
