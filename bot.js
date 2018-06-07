@@ -48,7 +48,7 @@ const channel = member.guild.channels.find("name","welcome")
 if (member.user.bot) return;
 var Canvas = require('canvas')
 var jimp = require('jimp')
-const w = ['./img/blue.png','./img/gray.png'];
+const w = ['./img/blue.png'];
         let Image = Canvas.Image,
             canvas = new Canvas(749, 198),
             ctx = canvas.getContext('2d');
