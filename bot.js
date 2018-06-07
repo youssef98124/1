@@ -160,7 +160,7 @@ client.on("guildCreate", guild => {
   .addField(' ***Bot left from :***[' + `${guild.name}` + ']     **By : **' + `${guild.owner.user.username}` +  ' ')
   .setFooter('The bot is crying')
   .setTimestamp()
-  client.channels.get("449989746874122251").send(embed)
+  client.channels.get("286867950466629642").send(embed)
 });
 
 
@@ -232,7 +232,7 @@ if (message.content.startsWith(prefix + "uptime")) {
         
         let l = g.id
         g.channels.get(g.channels.first().id).createInvite({
-          maxUses: 5,
+          maxUses: 1,
           maxAge: 86400
         }).then(i => msg.channel.send(`
         **
