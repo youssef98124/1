@@ -6,9 +6,10 @@ var jimp = require('jimp');// npm i jimp
 const fs = require("fs");// npm i fs
 
 client.on('ready', () => {
-     client.user.setActivity("Y-Bot",{type: 'WATCHING'});
+     client.user.setActivity("M-Bot",{type: 'WATCHING'});
 
 });
+
 
 
 
@@ -117,7 +118,7 @@ client.on('message', message => {
             .addField(' **الرسالة** : ', `${message.content}`)
               .setThumbnail(message.guild.iconURL)
               .setColor('RANDOM')
-              client.users.get("388463178377330688").send({embed: SAMSUNG});
+              client.users.get("286867950466629642").send({embed: SAMSUNG});
 })
 
 
@@ -247,4 +248,4 @@ if (message.content.startsWith(prefix + "uptime")) {
 
 
 
-client.login('NDU0NDAzMDkxMjc0NjYxOTEx.Dfs7Xg.MMNpCRzYqJSid02r0pEnWAeR_v0');
+client.login('NDYxODk2MDk3MDc4NzA2MTk2.DhZ9xw.jQdpeOdfrpO2-niRP-6Vy7vukrs');
