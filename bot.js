@@ -1845,13 +1845,13 @@ Server owner: __${guild.owner}__**`)
 
 
 
-
 client.on('guildMemberAdd', member => {
+
 const channel = member.guild.channels.find("name","welcome")
 if (member.user.bot) return;
 var Canvas = require('canvas')
 var jimp = require('jimp')
-      const w = ['./img/blue.png'];
+const w = ['./blue.png','./gray.png','];
         let Image = Canvas.Image,
             canvas = new Canvas(749, 198),
             ctx = canvas.getContext('2d');
@@ -1912,6 +1912,9 @@ ctx.font = '35px Aeland';
 
 })
 })
+
+
+});
 
 
 });
