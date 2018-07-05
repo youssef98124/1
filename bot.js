@@ -7,7 +7,6 @@ const moment = require("moment") //npm i moment
 // const Canvas = require("canvas-prebuilt"); // اذا كنت وندوز
 // npm i canvas-prebuilt
 
-
 let profile = JSON.parse(fs.readFileSync("./profile.json", "utf8"))
 client.on("message", message => {
  
@@ -368,7 +367,7 @@ client.on('message',  (message) => {
 });
 
 
-const moment = require('moment');
+
 
 client.on("guildMemberAdd", member => {
 let welcomer = member.guild.channels.find("name","welcome");
@@ -419,4 +418,4 @@ client.on('message', function(message) {
 })
 
 
-client.login('NDYxODk2MDk3MDc4NzA2MTk2.Dh51aw.1t2zArOJznksJ8BX-V79mQWnQfQ');
+client.login('NDYxODk2MDk3MDc4NzA2MTk2.Dh9ygA.FANCcc_eoY27Y4wy1zND3PxNNsg');
