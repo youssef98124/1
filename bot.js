@@ -461,7 +461,7 @@ function isYoutube(str) {
         color: 0x06DF00,
         description: "تم مسح الرسائل بنجاح",
         footer: {
-          text: "Mrzizx" // غير هنا حط اسم البوت
+          text: "M-bot" 
         }
       }}).then(msg => {msg.delete(3000)});
                           }
