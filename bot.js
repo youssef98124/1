@@ -7,7 +7,6 @@ const Discord = require('discord.js');// npm i discord.js
 const client = new Discord.Client();
 const ytdl = require('ytdl-core');
 const request = require('request');
-const fs = require('fs');
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
 const http2 = require('http2');
