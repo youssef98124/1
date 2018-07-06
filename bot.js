@@ -14,7 +14,6 @@ const http2 = require('http2');
 
 
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
-const prefix = '=';
 const discord_token = "NDYxODk2MDk3MDc4NzA2MTk2.DiDyaQ.symhHbVxKfxkOnWY7i4jnBXab9Y";
 client.login(discord_token);
 client.on('ready', function() {
